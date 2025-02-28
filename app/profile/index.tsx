@@ -1,16 +1,16 @@
 import { View, Text } from "react-native";
+import ProfileCard from "../../components/ProfileCard";
 
 export default function ProfileScreen() {
 
     return (
-        <View
-            style = {{
-                flex: 1,
-                justifyContent: "center",
-                alignItems: "center"
-            }}
-        >
-            <Text>This the profile page</Text>
+        <View>
+            <ProfileCard 
+                name="John Doe"
+                major="Computer Science"
+                profileImage="https://www.w3schools.com/howto/img_avatar.png"
+                onEditPress={() => alert("Edit Profile Clicked!")}
+            />
         </View>
     );
 }
