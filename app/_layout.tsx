@@ -15,14 +15,14 @@ export default function RootLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Home",
+          title: "Events",
           tabBarIcon: ({ color, size }) => <Ionicons name="home" color={color} size={size} />,
         }}
       />
 
       {/* Profile Tab */}
       <Tabs.Screen
-        name="profile/index"
+        name="profile"
         options={{
           title: "Profile",
           tabBarIcon: ({ color, size }) => <Ionicons name="person" color={color} size={size} />,
