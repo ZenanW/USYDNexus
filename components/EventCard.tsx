@@ -22,7 +22,7 @@ const EventCard: React.FC<EventProps> = ({ event }) => {
       <TouchableOpacity
         style={styles.card}
         onPress={() => router.push({
-          pathname: "/profile/event-detail",
+          pathname: "/event-detail",
           params: { 
               title: event.title,
               date: event.date,

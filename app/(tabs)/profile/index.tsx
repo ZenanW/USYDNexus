@@ -1,9 +1,16 @@
-import { View, Text, FlatList } from "react-native";
-import ProfileCard from "../../components/ProfileCard";
-import EventCard from "../../components/EventCard";
+import { View, Text, FlatList, Button } from "react-native";
+import { useRouter } from "expo-router";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import ProfileCard from "../../../components/ProfileCard";
+import EventCard from "../../../components/EventCard";
 
 export default function ProfileScreen() {
     // Dummy events data (replace with API data)
+    const router = useRouter();
+    const handleLogout = async () => {
+    await AsyncStorage.removeItem("userToken");
+    router.replace("/(auth)/signin");
+    };
     const events = [
         {
             id: "1",
@@ -44,7 +51,7 @@ export default function ProfileScreen() {
                 name="John Doe"
                 major="Computer Science"
                 profileImage="https://www.w3schools.com/howto/img_avatar.png"
-                onEditPress={() => alert("Edit Profile Clicked!")}
+                onEditPress={() => router.push('/profile/edit')}
             />
 
             {/* My Events Section */}
@@ -61,6 +68,7 @@ export default function ProfileScreen() {
                 showsHorizontalScrollIndicator={false} // Hides the scrollbar for cleaner UI
                 contentContainerStyle={{ paddingHorizontal: 10 }} // Adds spacing if needed
             />
+            <Button title="Log Out" onPress={handleLogout} />
         </View>
     );
 }
